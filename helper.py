@@ -1,13 +1,13 @@
 import collections
 import requests
+from helpers.config_helper import ConfigHelper
 
 
 class Helper:
-    mac_list = {
-    }
-
-    url = "http://192.168.25.1/wlclients.htm"
-    auth = ('admin', 'ADD_PASSWORD_HERE')
+    ConfigHelper = ConfigHelper()
+    mac_list = ConfigHelper.get_mac_list()
+    url = ConfigHelper.get_url()
+    auth = ConfigHelper.get_user_access()
     User = collections.namedtuple('User', [
             'macaddress',
             'download',
